@@ -548,7 +548,6 @@ def git_update(repo, is_no_errors=False, is_current_dir=False, git_owner=""):
     url = "git@github.com:ONLYOFFICE/" + repo + ".git"
     if (repo == "server"):
       url = "git@github.com:dcoffin88/" + repo + ".git"
-  url = "https://github.com/" + owner + "/" + repo + ".git"
   folder = get_script_dir() + "/../../" + repo
   if is_current_dir:
     folder = repo
