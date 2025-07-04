@@ -541,7 +541,13 @@ def get_ssh_base_url():
 
 def git_update(repo, is_no_errors=False, is_current_dir=False, git_owner=""):
   print("[git] update: " + repo)
-  owner = git_owner if git_owner else "ONLYOFFICE"
+    url = "https://github.com/ONLYOFFICE/" + repo + ".git"
+  if (repo == "server"):
+    url = "https://github.com/dcoffin88/" + repo + ".git"
+  if config.option("git-protocol") == "ssh":
+    url = "git@github.com:ONLYOFFICE/" + repo + ".git"
+    if (repo == "server"):
+      url = "git@github.com:dcoffin88/" + repo + ".git"
   url = "https://github.com/" + owner + "/" + repo + ".git"
   if git_is_ssh():
     url = get_ssh_base_url() + repo + ".git"
